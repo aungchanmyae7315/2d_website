@@ -16,7 +16,7 @@ body {
   }
   
   #q-app {
-    width:414px;
+    max-width:414px;
     height:auto;
     margin:0 auto;
   }
@@ -56,9 +56,11 @@ body {
     /* margin:0 20px; */
   }
   .q-page-container {
-    margin:0 5px;
+    margin:0 20px;
   }
-
+.q-pa-md {
+  padding:0;
+}
 
 
 
@@ -104,10 +106,10 @@ body {
 .card_item {
     background-image:url(~assets/images/card_one_bg.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     text-align: center;
     margin:0 auto;
-    padding:13px 10px;
+    padding:10px;
 }
 .card_item h4 {
     color:rgba(255, 255, 255, 1);
