@@ -1,0 +1,123 @@
+
+
+body {
+    color:#fff;
+  }
+  .custom-caption {
+    text-align: center;
+    /* padding: 12px; */
+   
+    color: #eee;
+    background: rgba(70, 68, 68, 0.904);
+    
+  }
+  .q-item {
+    margin:10px  auto 0px auto;
+  }
+  
+  #q-app {
+    width:414px;
+    height:auto;
+    margin:0 auto;
+  }
+  .fixed-top, .absolute-top {
+    width:414px;
+    height:auto;
+    margin:0 auto;
+  }
+  .q-layout, .q-header, .q-footer, .q-page {
+    background-image:url(~assets/images/main_bg.png); 
+  }
+  .q-toolbar  {
+    background-color: #0E4921;
+  }
+  .logo {
+    width:107px;
+    height:auto;
+    text-align: center;
+    margin-left:80px;
+  }
+  .q-carousel {
+    width:100%;
+    height:148px !important;
+    border-radius: 20px;
+  }
+  .q-btn--round .q-btn__wrapper{
+    font-size:6px;
+  }
+  .q-carousel__navigation {
+    bottom:20px;
+  }
+  .text-subtitle1 {
+    font-size:14px;
+    color:rgba(246, 223, 117, 1);
+  }
+  .main_container {
+    /* margin:0 20px; */
+  }
+  .q-page-container {
+    margin:0 5px;
+  }
+
+
+
+
+
+.number h2 {
+    color:rgba(255, 255, 255, 1);
+    font-size: 75pt;
+
+    text-align: center;
+    margin:0 auto;
+}
+.number {
+    margin:20px;
+}
+.date_time ul {
+    padding:0;
+    margin:0;
+    text-align: justify;
+    border-left:2px solid rgba(14, 57, 26, 1);
+
+
+}
+.date_time ul li {
+    list-style: none;
+    font-size: 15pt;
+    margin-left:30px;
+    color:rgba(173, 174, 183, 1);
+}
+.n_d_t {
+    margin:5px auto 15px auto;
+}
+.q-item__label {
+    font-size: 1rem;
+    font-weight: 700    ;
+}
+.q-item__section--side > .q-avatar {
+    width:58px;
+    height:58px;
+}
+.q-item__section--side > .q-avatar img {
+    border:3px solid goldenrod;
+}
+.card_item {
+    background-image:url(~assets/images/card_one_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    margin:0 auto;
+    padding:13px 10px;
+}
+.card_item h4 {
+    color:rgba(255, 255, 255, 1);
+    font-size: 17pt;
+    padding:0;
+    margin:3px auto;
+}
+.time_number {
+    color:rgba(213, 222, 232, 1);
+    font-size: 15pt;
+    margin:3px auto;
+    font-weight: 300;
+}
