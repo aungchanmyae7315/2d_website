@@ -1,215 +1,65 @@
 <template>
  <div id="q-app">
   <q-layout view="lHh Lpr lFf">
-    <!--
-    <q-layout-header  v-if='this.$route.path !== "/login" && this.$route.path !== "/loginStep2"'>-->
-    <q-header v-if="isLogin">
-      <q-toolbar color="primary">
-        <q-btn flat to="/" v-if="this.$route.path.length <= 1">
-          <q-icon name="home" />
-          <q-tooltip>Home</q-tooltip>
-        </q-btn>
-        <img src="~assets/images/logo.png" class="logo" alt="logo">
-        <q-btn flat @click="$router.go(-1)" v-if="this.$route.path.length > 1">
-          <q-icon name="fas fa-arrow-left" />
-          <q-tooltip>Back</q-tooltip>
-        </q-btn>
 
-        <q-toolbar-title class="text-subtitle1 text-center">
+    <q-layout-header >
+
+
+
+
+      <q-header elevated>
+          <q-toolbar>
+           
+              <q-btn flat to="/" class="bell">
+                  <q-icon name="notifications" />
+                  <q-tooltip>Bell</q-tooltip>
+                </q-btn>
          
-         {{appStatus.pageTitle}}
+            <q-toolbar-title> <img src="~assets/images/logo.png" class="logo" alt="logo"></q-toolbar-title>
+      <!-- autoplay music icon -->
+            <q-btn flat round dense class="header_icon_one">
+              <!-- <img src="~assets/images/icons/music_on.png" class="header_icon" alt="on"> -->
+               <div class="wrapper">
+                  <a href="#" title="Listen to the song" class="player-controls">
+                      <span class="audio-label">
+                          
+                      </span>
+                      <span class="play"></span>
+                      <span class="pause"></span>
+                  </a>
+                  <audio id="player">
+                      <source src="https://www.dropbox.com/s/t32waag3ib20b28/OneDance-Drake.mp3?raw=1" type="audio/mp3">
+                       <!-- <source src="https://casting-crowns.mp3quack.com/?raw=1" type="audio/mp3"> -->
+                  </audio>
+              </div>
+                
+            </q-btn>
+      <!-- autoplay music icon End -->
+             <q-btn flat round dense>
+                 <img src="~assets/images/icons/messeage_icon.png" class="header_icon" alt="mes">
+            </q-btn>
 
-        </q-toolbar-title>
- 
-        <q-btn class="fixed" flat to='/login' v-if="!isLogin">
-          <q-icon name="input" />
-          <q-tooltip>Log In</q-tooltip>
-        </q-btn>
 
-        <q-btn flat to='/register' v-if="!isLogin">
-          <q-icon name="person_add" />
-          <q-tooltip>Sign Up</q-tooltip>
-        </q-btn>
 
-        <!-- <q-btn flat to='/login' v-if="isLogin" @click='logout()'>
-          <q-icon name="fas fa-sign-out-alt" />
-          <q-tooltip>Log Out</q-tooltip>
-        </q-btn> -->
-        <q-btn flat to='/home' v-if="isLogin">
-          <q-icon name="fas fa-home" />
-          <q-tooltip>Home</q-tooltip>
-        </q-btn>
-      </q-toolbar>
-    </q-header>
-    
+
+
+
+
+
+          </q-toolbar>
+        </q-header>
+
+      </q-layout-header >
+
+
+
     <q-page-container>
+     
       <router-view :key="$route.fullPath" />
-        <div class="main_container">
-             <q-item clickable v-ripple>
-                <q-item-section side>
-                   <q-avatar>
-                        <img src="https://cdn.quasar.dev/img/avatar.png">
-                    </q-avatar>
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>Please Login First</q-item-label>
-                
-                </q-item-section>
-              
-              </q-item>
-          
-
-        </div>
-   
-  <div class="q-pa-md">
-      <q-carousel
-        animated
-        v-model="slide"
-        navigation
-        infinite
-        autoplay
-        transition-prev="slide-right"
-        transition-next="slide-left"
-      >
-        <q-carousel-slide name="first" img-src="~assets/images/slide_1.png">
-          <div class="absolute-bottom custom-caption">
-            
-            <div class="text-subtitle1">Lorem ipsum dolor sit amet consectetur adipi</div>
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="second" img-src="~assets/images/slide_1.png">
-          <div class="absolute-bottom custom-caption">
-           
-            <div class="text-subtitle1">Famous Lorem ipsum dolor sit amet consectetur</div>
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="third" img-src="~assets/images/slide_1.png">
-          <div class="absolute-bottom custom-caption">
-           
-            <div class="text-subtitle1">Famous Lorem ipsum dolor sit amet consectetur</div>
-          </div>
-        </q-carousel-slide>
-      </q-carousel>
-    </div>
-
-
-       
-<!--         
-        <div class="q-pa-md">
-            <q-carousel
-              animated
-              v-model="slide"
-              height ="130px"
-              navigation
-              infinite
-             
-              transition-prev="slide-right"
-              transition-next="slide-left"
-            >
-              <q-carousel-slide name="first" img-src="~assets/images/slide_1.png">
-                <div class="absolute-bottom custom-caption">
-                
-                  <div class="text-subtitle1">Mountains</div>
-                </div>
-              </q-carousel-slide>
-              <q-carousel-slide name="second" img-src="~assets/images/slide_1.png">
-                <div class="absolute-bottom custom-caption">
-                 
-                  <div class="text-subtitle1">Mountains</div>
-                </div>
-              </q-carousel-slide>
-              <q-carousel-slide name="third" img-src="~assets/images/slide_1.png">
-                <div class="absolute-bottom custom-caption">
-               
-                  <div class="text-subtitle1">Mountains</div>
-                </div>
-              </q-carousel-slide>
-          
-            </q-carousel>
-          </div>
-   -->
-
-
-    <div class="row n_d_t">
-      <div class="col">
-          <div class="number">
-                <h2>89</h2>
-          </div>
-      </div>
-      <div class="col">
-          <div class="date_time">
-              <ul>
-                <li>updated at:</li>
-                <li>4 January 2020</li>
-                <li>12:00 AM</li>
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="card_one">
-        <div class="card_item">
-          <h5 class="time_number">12:00 AM</h5>
-            <div class="row">
-              
-              <div class="col">
-                  <span>Set</span>
-                  <h4>1596.89</h4>
-              </div>
-              <div class="col">
-                  <span>Value</span>
-                  <h4>1397.76</h4>
-              </div>
-              <div class="col">
-                  <span>2D</span>
-                  <h4>89</h4>
-              </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     </q-page-container>
+
+    
 <!--
     <q-list
       no-border
@@ -223,30 +73,46 @@
       </q-item>
     </q-list>
 -->
+    <!-- <q-footer>
+      <q-tabs
+          v-model="tab"
+          class="bg text-white"
+        >
+          <q-tab name="home" icon="home" label="Homes" ></q-tab>
+          <q-tab name="my_wallet" icon="~assets/images/icons/" label="My Wallet" ></q-tab>
+          <q-tab name="services" icon="service" label="Service" ></q-tab>
+          <q-tab name="~/assets/images/icons/account_circle.svg" icon="me" label="Me" ></q-tab>
 
-    <q-footer v-if="isLogin && appStatus.isShowBottomTab">
-    <!--<q-btn @click="selectThirdTab">Select Third Tab</q-btn>-->
-    <q-tabs v-if="appStatus.enterModule == 'repair'" v-model="selectedTab" align="center">
-      <q-route-tab no-caps :to="{ path: 'repair',query: {type: 'request_confirm'}}" exact name="tab-1" icon="fas fa-check" :label="lang.need_confirm">
-        <q-badge color="red" floating>{{repairBadge.request_confirm_num}}</q-badge>
+        </q-tabs>
+    </q-footer> -->
+    
+    <!-- <q-footer v-if="isLogin && appStatus.isShowBottomTab"> -->
+    <q-footer>
+    
+    <!-- <q-btn @click="selectThirdTab">Select Third Tab</q-btn> -->
+     <!-- <q-tabs v-if="appStatus.enterModule == 'repair'" v-model="selectedTab" align="center"> -->
+    <q-tabs v-model="selectedTab" align="center">
+      <q-route-tab no-caps :to="{ path: 'home',query: {type: 'home'}}" exact name="tab-1" icon="img:statics/icons_header/dimond_t_icon.png" label="Home">
+        <!-- <q-badge color="red" floating>{{repairBadge.request_confirm_num}}</q-badge> -->
       </q-route-tab>
-      <q-route-tab no-caps :to="{ path: 'repair',query: {type: 'processing'}}" exact name="tab-2" icon="fas fa-running" :label="lang.processing">
-        <q-badge color="red" floating>{{repairBadge.processing_num}}</q-badge>
+      <q-route-tab no-caps :to="{ path: '/mywallet/my_wallet'}" exact name="tab-2" icon="img:statics/icons_header/wallet_icon.png" label="My Wallet">
+        <!-- <q-badge color="red" floating>{{repairBadge.processing_num}}</q-badge> -->
       </q-route-tab>
-      <q-route-tab no-caps :to="{ path: 'repair',query: {type: 'finished'}}" exact name="tab-3" icon="fas fa-check-double" :label="lang.close">
-        <q-badge color="red" floating>{{repairBadge.finished_num}}</q-badge>
+      <q-route-tab no-caps :to="{ path: '/service/service'}" exact name="tab-3" icon="img:statics/icons_header/service_icon.png" label="Service">
+        <!-- <q-badge color="red" floating>{{repairBadge.finished_num}}</q-badge> -->
       </q-route-tab>  
-      <q-route-tab no-caps :to="{ path: 'repair',query: {type: 'me'}}" exact name="tab-4" icon="fas fa-user" :label="lang.me" />
+      <q-route-tab no-caps :to="{ path: '/about/me'}" exact name="tab-4" icon="img:statics/icons_header/me_icon.png" label="Me" />
     </q-tabs>
 
-    <q-tabs v-if="appStatus.enterModule == 'purchase' || appStatus.enterModule == 'acceptance'" v-model="selectedTab" align="center">
-      <q-route-tab no-caps :to="{ path: 'purchase',query: {type: 'request_confirm'}}" exact name="tab-1" icon="fas fa-check" :label="lang.need_confirm">
+    <!-- <q-tabs v-if="appStatus.enterModule == 'purchase' || appStatus.enterModule == 'acceptance'" v-model="selectedTab" align="center">
+      
+      <q-route-tab no-caps :to="{ path: 'purchase',query: {type: 'home'}}" exact name="tab-1" icon="fas fa-check" :label="lang.need_confirm">
         <q-badge color="red" floating>{{purchaseBadge.request_confirm_num}}</q-badge>
       </q-route-tab>
-      <q-route-tab no-caps :to="{ path: 'purchase',query: {type: 'processing'}}" exact name="tab-2" icon="fas fa-running" :label="lang.processing">
+      <q-route-tab no-caps :to="{ path: 'purchase',query: {type: 'my_wallet'}}" exact name="tab-2" icon="fas fa-running" :label="lang.processing">
         <q-badge color="red" floating>{{purchaseBadge.processing_num}}</q-badge>
       </q-route-tab>
-      <q-route-tab no-caps :to="{ path: 'acceptance',query: {type: 'acceptance'}}" exact name="tab-3" icon="fas fa-running" :label="lang.acceptance">
+      <q-route-tab no-caps :to="{ path: 'acceptance',query: {type: 'service'}}" exact name="tab-3" icon="fas fa-running" :label="lang.acceptance">
         <q-badge color="red" floating>{{purchaseBadge.acceptance_num}}</q-badge>
       </q-route-tab>
       <q-route-tab no-caps :to="{ path: 'purchase',query: {type: 'finished'}}" exact name="tab-4" icon="fas fa-check-double" :label="lang.close">
@@ -255,7 +121,7 @@
       <q-route-tab no-caps :to="{ path: 'purchase',query: {type: 'me'}}" exact name="tab-5" icon="fas fa-user" :label="lang.me" />
 
 
-      <!--
+      
       <q-route-tab :to="{ path: 'purchase'}" exact name="tab-1" icon="far fa-plus-square" label="Purchase" />
       <q-route-tab :to="{ path: 'goout'}" exact name="tab-2" icon="far fa-plus-square" />
       <q-route-tab :to="{ path: 'goout-list', query: {type: 'new'}}" name="tab-3" icon="far fa-question-circle" exact />
@@ -263,8 +129,8 @@
       <q-route-tab :to="{ path: 'goout-list', query: {type: 'allow'}}" name="tab-4" icon="far fa-check-square" exact />
 
       <q-route-tab :to="{ path: 'goout-list', query: {type: 'all'}}" name="tab-5" icon="far fa-list-alt" exact />
-      -->
-    </q-tabs>
+     
+    </q-tabs> -->
 
     </q-footer>
 
@@ -308,7 +174,11 @@ export default {
       notiTitle:'',
       notiContent:'',
       selectedTab: 'tab-1',
-      slide: 'first'
+      slide: 'first',
+       tab: 'homes',
+        tab: 'my_wallet',
+        tab: 'services',
+        tab: 'me',
     };
   },
   computed:{
@@ -355,6 +225,7 @@ export default {
     //   console.dir(user);
     // },
     home(){
+      alert('hello');
       this.$router.push('home');
     },
     logout() {

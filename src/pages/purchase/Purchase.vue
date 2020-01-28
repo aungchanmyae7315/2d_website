@@ -119,7 +119,7 @@ export default {
       pageTitle = this.lang.close;
     }
     else if (type == "acceptance"){
-      pageTitle = this.lang.acceptance;
+      pageTitle = this.lang.service;
     }
     else if (type == "me"){
       pageTitle = this.lang.me;

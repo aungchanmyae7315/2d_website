@@ -80,27 +80,27 @@ export default {
     QPullToRefresh
   },
   mounted() {    
-    this.date = date;
-    this.repairList(null);
-    this.repairBadge();
-    this.updateAppStatus({key:'isShowBottomTab',value:true});
-    this.updateAppStatus({key:'enterModule',value:'repair'});
+    // this.date = date;
+    // this.repairList(null);
+    // this.repairBadge();
+    // this.updateAppStatus({key:'isShowBottomTab',value:true});
+    // this.updateAppStatus({key:'enterModule',value:'repair'});
 
-    var type = this.$route.query.type;
-    var pageTitle = '';
-    if (type == "request_confirm"){
-      pageTitle = this.lang.need_confirm;
-    }
-    else if (type == "processing"){
-      pageTitle = this.lang.processing;
-    }
-    else if (type == "finished"){
-      pageTitle = this.lang.close;
-    }
-    else if (type == "me"){
-      pageTitle = this.lang.me;
-    }
-    this.updateAppStatus({key:'pageTitle',value:pageTitle});
+    // var type = this.$route.query.type;
+    // var pageTitle = '';
+    // if (type == "request_confirm"){
+    //   pageTitle = this.lang.need_confirm;
+    // }
+    // else if (type == "processing"){
+    //   pageTitle = this.lang.processing;
+    // }
+    // else if (type == "finished"){
+    //   pageTitle = this.lang.close;
+    // }
+    // else if (type == "me"){
+    //   pageTitle = this.lang.me;
+    // }
+    // this.updateAppStatus({key:'pageTitle',value:pageTitle});
 
   },
   watch: {

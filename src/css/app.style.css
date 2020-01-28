@@ -1,8 +1,6 @@
 
 
-body {
-    color:#fff;
-  }
+
   .custom-caption {
     text-align: center;
     /* padding: 12px; */
@@ -12,34 +10,69 @@ body {
     
   }
   .q-item {
-    margin:10px  auto 0px auto;
+    margin:10px  auto 10px auto;
+  }
+  /* .q-icon {
+    font-size: 4.715em;
+  } */
+  #q-app {
+    max-width: 414px;
+    width: 100%;
+    height:auto;
+    margin:0 auto;
+  }
+  .fixed-top , .absolute-top {
+    max-width: 414px;
+    width: 100%;
+    height:auto;
+    margin:0 auto;
+  }
+  .q-footer {
+    max-width: 414px;
+    width: 100%;
+    height:auto;
+    margin:0 auto;
+    background-color: #0E4921;
+  }
+  .q-header {
+    display: inline-flex;
+    text-align: center;
+   
   }
   
-  #q-app {
-    max-width:414px;
-    height:auto;
-    margin:0 auto;
-  }
-  .fixed-top, .absolute-top {
-    width:414px;
-    height:auto;
-    margin:0 auto;
-  }
-  .q-layout, .q-header, .q-footer, .q-page {
+  .q-layout, .q-page {
     background-image:url(~assets/images/main_bg.png); 
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .q-toolbar  {
     background-color: #0E4921;
+    padding:5px 10px;
   }
   .logo {
     width:107px;
     height:auto;
     text-align: center;
-    margin-left:80px;
+   
   }
+  .header_icon {
+    width:20px;
+    height: auto;
+    
+  }
+  .me_amount {
+    color:goldenrod;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .header_icon_one {
+    margin-right:20px;
+  }
+  
   .q-carousel {
     width:100%;
-    height:148px !important;
+    height:130px !important;
     border-radius: 20px;
   }
   .q-btn--round .q-btn__wrapper{
@@ -52,17 +85,18 @@ body {
     font-size:14px;
     color:rgba(246, 223, 117, 1);
   }
-  .main_container {
-    /* margin:0 20px; */
-  }
+
   .q-page-container {
-    margin:0 20px;
+    margin:0 auto;
+    padding-bottom:128px !important;
   }
 .q-pa-md {
   padding:0;
 }
 
-
+.q-tab--full {
+  min-height: 64px;
+}
 
 
 .number h2 {
@@ -76,8 +110,7 @@ body {
     margin:20px;
 }
 .date_time ul {
-    padding:0;
-    margin:0;
+    padding-left:23px;
     text-align: justify;
     border-left:2px solid rgba(14, 57, 26, 1);
 
@@ -86,11 +119,10 @@ body {
 .date_time ul li {
     list-style: none;
     font-size: 15pt;
-    margin-left:30px;
     color:rgba(173, 174, 183, 1);
 }
 .n_d_t {
-    margin:5px auto 15px auto;
+    margin:25px auto 0px auto;
 }
 .q-item__label {
     font-size: 1rem;
@@ -100,15 +132,26 @@ body {
     width:58px;
     height:58px;
 }
-.q-item__section--side > .q-avatar img {
+/* .q-item__section--side > .q-avatar img {
     border:3px solid goldenrod;
+} */
+.q-item__label {
+  color:#fff;
 }
-.card_item {
+.card_one , .card_two{
     background-image:url(~assets/images/card_one_bg.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     text-align: center;
-    margin:0 auto;
+    margin:20px auto;
+    padding:10px;
+}
+.card_three , .card_four {
+    background-image:url(~assets/images/card_two_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    margin:20px auto;
     padding:10px;
 }
 .card_item h4 {
@@ -117,9 +160,196 @@ body {
     padding:0;
     margin:3px auto;
 }
+.card_item span {
+  color:#fff;
+}
 .time_number {
     color:rgba(213, 222, 232, 1);
     font-size: 15pt;
-    margin:3px auto;
+    margin:11px auto;
     font-weight: 300;
+}
+.bet_btn {
+  text-align: center;
+  margin-left: -16px;
+  display: block;
+  position: fixed;
+  bottom: 75px;
+  max-width:414px;
+  width: 100%;
+  
+}
+
+.glossy {
+  background-color: goldenrod;
+  color:#4D2707;
+  font-weight: bold;
+  width:120px;
+  padding:5px 0;
+  margin:0 auto;
+  
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* autoplay music icon css */
+
+.player-controls {
+  color: #FFF;
+  cursor: pointer;
+  display: block;
+  font-size: 40px;
+  height: .6em;
+  position: relative;
+  text-decoration: none;
+  width: .6em;
+  -webkit-transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+}
+.player-controls .audio-label {
+  line-height: 1;
+  position: absolute;
+  right: 1.35em;
+  text-align: right;
+  text-transform: uppercase;
+  top: -0.4em;
+}
+.player-controls .audio-label span {
+  font-size: 18px;
+}
+.player-controls .audio-label span small {
+  display: block;
+  font-size: 0.83em;
+}
+.player-controls .play,
+.player-controls .pause {
+  display: block;
+  background-image:url(~assets/images/icons/music_off.png); 
+  background-size: 100% 100%;
+  height: .6em;
+  position: absolute;
+  width: .6em;
+  -webkit-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+  z-index: 5;
+}
+.player-controls .play::before,
+.player-controls .pause::before,
+.player-controls .play::after,
+.player-controls .pause::after {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  content: "";
+  display: block;
+  position: absolute;
+  height: .6em;
+  right: 0;
+  top: 0;
+  width: .6em;
+  z-index: 0;
+}
+.player-controls .play::before {
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  -webkit-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+.player-controls .pause {
+  background-image:url(~assets/images/icons/music_on.png); 
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+.player-controls.playing .play {
+  opacity: 0;
+}
+.player-controls.playing .pause {
+  opacity: 1;
+}
+.player-controls.playing .pause::before {
+  -moz-animation: audio1 1.5s infinite ease-in-out;
+  -o-animation: audio1 1.5s infinite ease-in-out;
+  -webkit-animation: audio1 1.5s infinite ease-in-out;
+  animation: audio1 1.5s infinite ease-in-out;
+}
+.player-controls.playing .pause::after {
+  -moz-animation: audio2 2.2s infinite ease-in-out;
+  -o-animation: audio2 2.2s infinite ease-in-out;
+  -webkit-animation: audio2 2.2s infinite ease-in-out;
+  animation: audio2 2.2s infinite ease-in-out;
+}
+.player-controls:hover {
+  transform: scale(1.1);
+}
+.player-controls:hover .play::before {
+  box-shadow: 0 0 12px rgba(255, 238, 125, 0.8);
+}
+.animate-audio1 {
+  -moz-animation: audio1 1.5s infinite ease-in-out;
+  -o-animation: audio1 1.5s infinite ease-in-out;
+  -webkit-animation: audio1 1.5s infinite ease-in-out;
+  animation: audio1 1.5s infinite ease-in-out;
+}
+@keyframes audio1 {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0.4em rgba(255, 255, 255, 0.4);
+  }
+  25% {
+    box-shadow: 0 0 0 0.15em rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 0 0.55em rgba(255, 255, 255, 0.55);
+  }
+  75% {
+    box-shadow: 0 0 0 0.25em rgba(255, 255, 255, 0.25);
+  }
+}
+.animate-audio2 {
+  -moz-animation: audio2 2.2s infinite ease-in-out;
+  -o-animation: audio2 2.2s infinite ease-in-out;
+  -webkit-animation: audio2 2.2s infinite ease-in-out;
+  animation: audio2 2.2s infinite ease-in-out;
+}
+@keyframes audio2 {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0.25em rgba(255, 255, 255, 0.15);
+  }
+  25% {
+    box-shadow: 0 0 0 0.4em rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 0.15em rgba(255, 255, 255, 0.05);
+  }
+  75% {
+    box-shadow: 0 0 0 0.55em rgba(255, 255, 255, 0.45);
+  }
 }

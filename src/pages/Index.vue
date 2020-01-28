@@ -2,6 +2,167 @@
  <q-page class="q-ml-md q-mr-md">
    <q-resize-observer @resize="onResize" />
  
+
+
+         <div class="main_container">
+             <q-item clickable v-ripple>
+                <q-item-section side>
+                   <q-avatar>
+                       <img src="../assets/images/icons/icon_my_profile.png">
+                    </q-avatar>
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Please Login First</q-item-label>
+                  <span class="me_amount">5000 MMK</span>
+
+                
+                </q-item-section>
+              
+              </q-item>
+          
+
+        </div>
+   <div id="q-app">
+  <div class="q-pa-md">
+      <q-carousel
+        animated
+        v-model="slide"
+        navigation
+        infinite
+        autoplay
+        transition-prev="slide-right"
+        transition-next="slide-left"
+      >
+        <q-carousel-slide :name="1"  img-src="../assets/images/slide_1.png" >
+          <div class="absolute-bottom custom-caption">
+            <div class="text-subtitle1">One Lorem ipsum dolor sit amet consectetur adipi</div>
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide :name="2" img-src="../assets/images/slide_1.png" >
+           <div class="absolute-bottom custom-caption">
+            <div class="text-subtitle1">Two Lorem ipsum dolor sit amet consectetur adipi</div>
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide :name="3" img-src="../assets/images/slide_1.png" >
+           <div class="absolute-bottom custom-caption">
+            <div class="text-subtitle1">Three Lorem ipsum dolor sit amet consectetur adipi</div>
+          </div>
+        </q-carousel-slide>
+       
+      </q-carousel>
+    </div>
+</div>
+ 
+
+    <div class="row n_d_t">
+      <div class="col">
+          <div class="number">
+                <h2>89</h2>
+          </div>
+      </div>
+      <div class="col">
+          <div class="date_time">
+              <ul>
+                <li>updated at:</li>
+                <li>4 January 2020</li>
+                <li>12:00 AM</li>
+              </ul>
+          </div>
+      </div>
+    </div>
+    <div class="card_one">
+        <div class="card_item">
+          <h5 class="time_number">12:00 AM</h5>
+            <div class="row">
+              
+              <div class="col">
+                  <span>Set</span>
+                  <h4>1596.89</h4>
+              </div>
+              <div class="col">
+                  <span>Value</span>
+                  <h4>1397.76</h4>
+              </div>
+              <div class="col">
+                  <span>2D</span>
+                  <h4>89</h4>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="card_two">
+        <div class="card_item">
+          <h5 class="time_number">4:00 PM</h5>
+            <div class="row">
+              
+              <div class="col">
+                  <span>Set</span>
+                  <h4>1596.89</h4>
+              </div>
+              <div class="col">
+                  <span>Value</span>
+                  <h4>1397.76</h4>
+              </div>
+              <div class="col">
+                  <span>2D</span>
+                  <h4>--</h4>
+              </div>
+            </div>
+        </div>
+    </div>
+     <div class="card_three">
+        <div class="card_item">
+         
+            <div class="row">
+              
+              <div class="col">
+                  <h5 class="time_number">4:00 PM</h5>
+              </div>
+              <div class="col">
+                  <span>Set</span>
+                  <h4>1596.89</h4>
+              </div>
+              <div class="col">
+                  <span>Value</span>
+                  <h4>1397.76</h4>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="card_three">
+        <div class="card_item">
+         
+            <div class="row">
+              
+              <div class="col">
+                  <h5 class="time_number">4:00 PM</h5>
+              </div>
+              <div class="col">
+                  <span>Set</span>
+                  <h4>1596.89</h4>
+              </div>
+              <div class="col">
+                  <span>Value</span>
+                  <h4>1397.76</h4>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+     
+
+
+    
+    <div class="bet_btn">
+        <q-btn class="glossy"  :to="{ path: 'bet/bet',query: {type: 'bet'}}" size="md" rounded label="Bet" ></q-btn>
+    </div>
+
+
+
+
+
+ 
    <!-- <div class="row">
      
      <my-select v-model="selected" :options="myOptions" />
@@ -20,7 +181,7 @@
       </q-btn>
    </div> -->
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col">
         <q-select
           :options="[
@@ -85,7 +246,7 @@
         </div>
       </div>
       
-    </q-card>
+    </q-card> -->
 
 
  </q-page>
@@ -98,6 +259,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import axios from "axios";
 //import lang from '../i18n/en-us'
 import auth from '../auth';
 import { QSpinnerTail } from 'quasar';
@@ -111,9 +273,11 @@ export default {
     },
     //lang,
     //lang:this.$i18n.locale,
+    
     vlang: null,
     auth,
     posts: [],
+    slide: 1,
     selected: null,
     myOptions: [ { label: 'BMW', value: 'car' }, { label: 'Samsung Phone', value: 'phone' } ]
     //onesignal
@@ -129,12 +293,17 @@ export default {
   // },
 
   mounted() {
-    if (localStorage.getItem('Authorization') === null){
-      this.$router.push('login');
-    }
-    this.updateAppStatus({key:'isShowBottomTab',value:false});
-    this.cleanRepairs([]);
-    this.cleanPurchases([]);
+    //  axios
+    //   .get('https://build.seinlucky.com/api/v1/twod-result/live')
+    //   .then(response => (this.info = response))
+    //   console.log(this.info);
+    //   alert(this.info)
+    // if (localStorage.getItem('Authorization') === null){
+    //   this.$router.push('login');
+    // }
+    // this.updateAppStatus({key:'isShowBottomTab',value:false});
+    // this.cleanRepairs([]);
+    // this.cleanPurchases([]);
   },
   destroyed () {
     this.deletePageTitle()

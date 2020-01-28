@@ -10,12 +10,15 @@ const routes = [
 ]
 */
 const routes = [
+  { path: 'sign_up', component: () => import('pages/sign_up.vue') },
   {
+    
     path: '/',
     component: () => import('layouts/MyLayout.vue'),
+    
     children: [
       { path: 'home', component: () => import('pages/Index.vue') },
-      { path: 'login', component: () => import('pages/Login.vue') },
+   
       { path: 'register', component: () => import('pages/Register.vue') },
       // { path: 'publish', component: () => import('pages/Publish.vue') },
       // { path: 'goout', component: () => import('pages/Goout.vue') },
@@ -44,6 +47,52 @@ const routes = [
       { path: 'deliveryHistory', name: 'deliveryHistory', component: () => import('pages/purchase/DeliveryHistory.vue') },
     ],
   },
+  { 
+    path: '/about',
+    component: () => import('layouts/AboutLayout.vue'),
+    children: [
+      { path: 'me', component: () => import('pages/account_me.vue') },
+      { path: 'my_wallet', component: () => import('pages/my_wallet.vue') },
+      { path: 'service', component: () => import('pages/service.vue') },
+    ]
+  },
+  { 
+    path: '/service',
+    component: () => import('layouts/ServiceLayout.vue'),
+    children: [
+      { path: 'me', component: () => import('pages/account_me.vue') },
+      { path: 'my_wallet', component: () => import('pages/my_wallet.vue') },
+      { path: 'service', component: () => import('pages/service.vue') },
+    ]
+  },
+  { 
+    path: '/mywallet',
+    component: () => import('layouts/MyWalletLayout.vue'),
+    children: [
+      { path: 'me', component: () => import('pages/account_me.vue') },
+      { path: 'my_wallet', component: () => import('pages/my_wallet.vue') },
+      { path: 'service', component: () => import('pages/service.vue') },
+    ]
+  },
+  
+  
+  { 
+    path: '/bet',
+    component: () => import('layouts/BetLayout.vue'),
+    children: [
+      { path: 'bet', component: () => import('pages/bet.vue') },
+
+    ]
+  },
+  { 
+    path: '/',
+    component: () => import('layouts/LoginLayout.vue'),
+    children: [
+      { path: 'login', component: () => import('pages/Login.vue') },
+
+    ]
+  },
+  
 ];
 
 // Always leave this as last one
