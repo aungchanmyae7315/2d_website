@@ -10,7 +10,15 @@ const routes = [
 ]
 */
 const routes = [
-  { path: 'sign_up', component: () => import('pages/sign_up.vue') },
+  {
+    path: '/sign_up',
+    component: () => import('pages/sign_up')
+  },
+  {
+    path: '/login',
+    component: () => import('pages/login')
+  },
+
   {
     
     path: '/',
@@ -84,14 +92,7 @@ const routes = [
 
     ]
   },
-  { 
-    path: '/',
-    component: () => import('layouts/LoginLayout.vue'),
-    children: [
-      { path: 'login', component: () => import('pages/Login.vue') },
 
-    ]
-  },
   
 ];
 

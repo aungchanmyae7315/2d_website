@@ -7,7 +7,7 @@
          <div class="main_container">
              <q-item clickable v-ripple>
                 <q-item-section side>
-                   <q-avatar>
+                   <q-avatar @click="register_signup()">
                        <img src="../assets/images/icons/icon_my_profile.png">
                     </q-avatar>
                 </q-item-section>
@@ -62,11 +62,13 @@
       </div>
       <div class="col">
           <div class="date_time">
-              <ul>
-                <li>updated at:</li>
-                <li>4 January 2020</li>
-                <li>12:00 AM</li>
-              </ul>
+             <div class="d_t_item">
+                <span>updated at:</span><br>
+                <span>4 January 2020</span><br>
+                <span>12:00 AM</span>
+             </div>
+
+             
           </div>
       </div>
     </div>
@@ -321,6 +323,9 @@ export default {
     })
   },
   methods: {
+    register_signup() {
+      this.$router.push('login');
+    },
     /*
     ...mapActions('example', [
       'setPageTitle',

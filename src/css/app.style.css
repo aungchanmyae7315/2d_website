@@ -109,15 +109,14 @@
 .number {
     margin:20px;
 }
-.date_time ul {
+.date_time .d_t_item {
     padding-left:23px;
     text-align: justify;
     border-left:2px solid rgba(14, 57, 26, 1);
 
 
 }
-.date_time ul li {
-    list-style: none;
+.date_time .d_t_item span {
     font-size: 15pt;
     color:rgba(173, 174, 183, 1);
 }
